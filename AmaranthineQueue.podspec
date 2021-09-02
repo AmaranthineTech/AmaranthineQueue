@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "14.0"
 
   # ――― Source Location ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  spec.source       = { :path => '.' }
+  spec.source       = { :git => "https://github.com/AmaranthineTech/AmaranthineQueue.git", :tag=> "1.0.0" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
