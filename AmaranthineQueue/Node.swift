@@ -11,7 +11,7 @@ import Foundation
  Node<Element> class represents a single node.
  
  *Parameters*
- 
+ __________
  `data`          Represents the data stored in the Node.
  
  `nextNode`      Represents the next node in the queue.

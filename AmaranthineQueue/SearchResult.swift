@@ -11,17 +11,21 @@ import Foundation
  Search results for Queue
  
  *values*
- 
+ __________
  `elementNotFound`
  
  `elementFound`
  
  `empty`
  
+ **Functions**
+ __________
+ `toString`
+ Converts the enum value to a `String` value.
+ 
  - Author: Arun Patwardhan
  - Version: 1.0
  - Date: 20th July 2019
- 
  
  **Contact Details**
  

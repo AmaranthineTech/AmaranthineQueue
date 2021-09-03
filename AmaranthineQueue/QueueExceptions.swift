@@ -11,7 +11,7 @@ import Foundation
  Exceptions for Queue
  
  *values*
- 
+ __________
  `elementNotFound(String)`
  
  Thrown when the element being searched is not present
@@ -28,6 +28,12 @@ import Foundation
  
  Thrown when attempting to add an item to a queue that has reached its maximum limit
  
+ 
+ **Variables**
+ __________
+ `description`
+ 
+ Returs a  string decription of the value.
  - Author: Arun Patwardhan
  - Version: 1.0
  */
