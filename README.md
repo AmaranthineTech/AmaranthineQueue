@@ -1,0 +1,2 @@
+# AmaranthineQueue
+Cocoapods implementation
