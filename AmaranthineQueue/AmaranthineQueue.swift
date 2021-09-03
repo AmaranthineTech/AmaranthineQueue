@@ -8,9 +8,10 @@
 import Foundation
 
 /**
- AmaranthineQueue<Element> class represents the entire queue
+ AmaranthineQueue<Element> struct represents the entire queue
  
  **Variables**
+ __________
  
  `startNode`
  
@@ -24,7 +25,28 @@ import Foundation
  
  Represents the size of the queue.
  
+ `describe`
+ 
+ Returns a string description.
+ 
+ `first`
+ 
+ Gives the value for the first element in the queue.
+ 
+ `last`
+ 
+ Gives the value for the last element in the queue.
+ 
+ `startIndex`
+ 
+ Gives the postion of the first element in the queue.
+ 
+ `endIndex`
+ 
+ Gives the position of the last element in the queue.
+ 
  **Functions**
+ ___________
  
  `func push(Element newElement : Element)`
  
@@ -38,8 +60,42 @@ import Foundation
  
  Used to search for an element in the Queue
  
- **Protocols**
+ `static func +(lhs : AmaranthineQueue, rhs : AmaranthineQueue) -> AmaranthineQueue`
  
+ This function takes 2 Queues and combines them to form a new Queue.
+ 
+ `mutating func emptyQueue() throws`
+ 
+ This function removes all the elements from the queue
+ 
+ **Capabilities**
+ __________
+ ```
+ var demoQueue : AmaranthineQueue<Int> = [1,2,3,4,5]
+ ```
+ Initialise the queue with a literal value.
+ 
+ ```
+ demoQueue1 == demoQueue2
+ ```
+ 
+ This functions allows the user to compare to queues.
+ 
+ ```
+ demoQueue[0] = 1
+ ```
+ 
+ Abilitiy to access queue items using the `[]` subscript operator.
+ 
+ ```
+ for item in demoQueue {
+    print(item)
+ }
+ ```
+ Ability to iterate over the queue using the for each syntax.
+ 
+ **Protocols**
+ __________
  Conforms to the following protocols
  
  `CustomStringConvertible`
@@ -52,9 +108,18 @@ import Foundation
  
  `ExpressibleByArrayLiteral`
  
- 
+
  - Author: Arun Patwardhan
  - Version: 1.0
+ 
+
+ **Contact Details**
+ __________
+ [arun@amaranthine.co.in](mailto:arun@amaranthine.co.in)
+ 
+ [www.amaranthine.in](https://www.amaranthine.in)
+ 
+ [github.com/AmaranthineTech/AmaranthineQueue](https://github.com/AmaranthineTech/AmaranthineQueue)
  */
 public struct AmaranthineQueue<Element> {
     //MARK: - Variables --------------------------------------------------
@@ -74,8 +139,7 @@ public struct AmaranthineQueue<Element> {
      - copyright: Copyright (c) Amaranthine 2015
      - version: 1.0
      */
-    public init()
-    {
+    public init() {
     }
     
     //Queue with maximum limit
@@ -143,10 +207,13 @@ public struct AmaranthineQueue<Element> {
      - important: This function does not do validation.
      - warning: `push` can throw if the maximum capacity is breached
      - returns: Void.
+     - throws: `QueueExceptions`
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     @available(iOS, introduced: 11, message: "Use this to add elements to a Node")
     public mutating func push(Element newElement : Element) throws {
         guard self.size < self.maxCapacity
@@ -173,10 +240,13 @@ public struct AmaranthineQueue<Element> {
      - important: This function throws an Exception if you try to remove from an empty queue
      - note: The reason why the return type is an optional is because the node may or may not hold data. A return value of `nil` indicates that there is a node, but the node is empty.
      - returns: `Element?`
+     - throws: `QueueExceptions`
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     @available(iOS, introduced: 11.0, message: "Remove Element Function")
     @discardableResult public mutating func pop() throws -> Element? {
         guard nil != startNode
@@ -220,10 +290,13 @@ extension AmaranthineQueue {
      This function searches for the given element in the queue
      - important: This function throws an Exception if you try to search from an empty queue
      - returns: `SearchResult`
+     - throws: `QueueExceptions`
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     @available(iOS, introduced: 11.0, message: "Search for an Element Function")
     public func search(forElement searchElement : Element, with task : SearchClosure) throws -> SearchResult {
         guard nil != startNode
@@ -267,7 +340,9 @@ extension AmaranthineQueue {
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     @available(iOS, introduced: 11.0, message: "Remove Element Function")
     public static func +(lhs : AmaranthineQueue, rhs : AmaranthineQueue) -> AmaranthineQueue {
         var resultingQueue  : AmaranthineQueue  = AmaranthineQueue()
@@ -345,7 +420,8 @@ extension AmaranthineQueue {
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0*/
     @available(iOS, introduced: 11.0, message: "Remove all Elements Function")
     public mutating func emptyQueue() throws {
         guard nil != startNode
@@ -446,7 +522,8 @@ extension AmaranthineQueue
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0*/
     @available(iOS, introduced: 11.0, message: "Starting index of the queue.")
     public var startIndex : Index {
         return 0
@@ -458,7 +535,8 @@ extension AmaranthineQueue
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0*/
     @available(iOS, introduced: 11.0, message: "Last index of the queue.")
     public var endIndex: Index {
         return Int(size)
@@ -471,7 +549,8 @@ extension AmaranthineQueue
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0*/
     @available(iOS, introduced: 11.0, message: "Subscripting")
     public subscript (position : Index) -> Element {
         get {
@@ -500,7 +579,9 @@ extension AmaranthineQueue : Sequence {
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     @available(iOS, introduced: 11.0, message: "Iterator creation function")
     public func makeIterator() -> Iterator {
         var index = 0
@@ -535,7 +616,9 @@ extension AmaranthineQueue : Collection {
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     public subscript (bounds: Range<AmaranthineQueue.Index>) -> AmaranthineQueue.SubSequence {
         var newQueue : AmaranthineQueue<Element> = AmaranthineQueue<Element>()
         
@@ -552,7 +635,9 @@ extension AmaranthineQueue : Collection {
      - requires: iOS 11 or later
      - Since: iOS 11
      - author: Arun Patwardhan
-     - copyright: Copyright (c) Amaranthine 2015 - version: 1.0*/
+     - copyright: Copyright (c) Amaranthine 2015
+     - version: 1.0
+     */
     @available(iOS, introduced: 11.0, message: "Iterator creation function")
     public func index(after i: Int) -> Int {
         if i < endIndex {
